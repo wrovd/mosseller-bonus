@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MosSeller Bonus — Вход</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+  <div class="page auth">
+    <div class="auth-card">
+      <div class="brand-row">
+        <div class="brand">MOSSELLER</div>
+        <div class="muted">Бонусная программа</div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Вход</button>
+        <button class="tab" data-tab="register">Регистрация</button>
+      </div>
+
+      <form id="loginForm" class="form">
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label class="field">
+          <span>Пароль</span>
+          <input name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="btn primary" type="submit">Войти</button>
+        <div id="loginError" class="error"></div>
+      </form>
+
+      <form id="registerForm" class="form hidden">
+        <div class="grid2">
+          <label class="field">
+            <span>Имя</span>
+            <input name="firstName" required />
+          </label>
+          <label class="field">
+            <span>Фамилия</span>
+            <input name="lastName" required />
+          </label>
+        </div>
+        <label class="field">
+          <span>Email</span>
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+        <label class="field">
+          <span>Пароль</span>
+          <input name="password" type="password" autocomplete="new-password" minlength="6" required />
+        </label>
+        <button class="btn primary" type="submit">Создать аккаунт</button>
+        <div id="registerError" class="error"></div>
+      </form>
+
+      <div class="foot muted">
+        MVP на GitHub Pages + Google Sheets
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/api.js"></script>
+  <script src="assets/auth.js"></script>
+</body>
+</html>
