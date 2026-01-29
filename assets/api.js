@@ -1,5 +1,7 @@
-// Вставь сюда Web App URL из Apps Script:
-const API_URL = "https://script.google.com/macros/s/AKfycbz2FQUWQd7sT0MFY3Dr01gfmN6Kclv12MocO4ekusUBOhgnUOYvpn3PyEnDwWD_F5tdlA/exec";
+// assets/api.js (полностью)
+
+// ВАЖНО: сюда вставь URL именно текущего Web App (Deploy -> Manage deployments -> Web app URL)
+const API_URL = "https://script.google.com/macros/s/AKfycbyRnmquMnsrJWmqU7SuVqhL-19UzgRi32Xmq9Jt6fmTdwNAfDh0g94jPFGvouEh8nJAkg/exec";
 
 async function api(action, payload = {}) {
   const res = await fetch(API_URL, {
@@ -9,6 +11,7 @@ async function api(action, payload = {}) {
   });
 
   const data = await res.json().catch(() => ({ ok: false, error: "Bad JSON" }));
+
   if (!data.ok) throw new Error(data.error || "API error");
   return data;
 }
