@@ -1,3 +1,4 @@
+<!-- index.html (полностью) -->
 <!doctype html>
 <html lang="ru">
 <head>
@@ -15,49 +16,65 @@
       </div>
 
       <div class="tabs">
-        <button class="tab active" data-tab="login">Вход</button>
-        <button class="tab" data-tab="register">Регистрация</button>
+        <button class="tab active" data-tab="login" type="button">Вход</button>
+        <button class="tab" data-tab="register" type="button">Регистрация</button>
       </div>
 
+      <!-- LOGIN -->
       <form id="loginForm" class="form">
         <label class="field">
           <span>Email</span>
           <input name="email" type="email" autocomplete="email" required />
         </label>
+
         <label class="field">
           <span>Пароль</span>
           <input name="password" type="password" autocomplete="current-password" required />
         </label>
+
         <button class="btn primary" type="submit">Войти</button>
         <div id="loginError" class="error"></div>
       </form>
 
+      <!-- REGISTER -->
       <form id="registerForm" class="form hidden">
         <div class="grid2">
           <label class="field">
             <span>Имя</span>
             <input name="firstName" required />
           </label>
+
           <label class="field">
             <span>Фамилия</span>
             <input name="lastName" required />
           </label>
         </div>
+
         <label class="field">
           <span>Email</span>
           <input name="email" type="email" autocomplete="email" required />
         </label>
+
         <label class="field">
           <span>Пароль</span>
           <input name="password" type="password" autocomplete="new-password" minlength="6" required />
         </label>
+
+        <label class="consent">
+          <input type="checkbox" id="consentCheckbox" />
+          <span>
+            Я согласен с
+            <a href="https://mosseller.ru/personaldata" target="_blank" rel="noopener">
+              обработкой персональных данных
+            </a>
+          </span>
+        </label>
+
         <button class="btn primary" type="submit">Создать аккаунт</button>
         <div id="registerError" class="error"></div>
       </form>
 
-      <div class="foot muted">
-        MVP на GitHub Pages + Google Sheets
-      </div>
+      <div class="foot muted">MVP на GitHub Pages + Google Sheets</div>
     </div>
   </div>
 
