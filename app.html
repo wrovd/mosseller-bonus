@@ -5,8 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>MosSeller Bonus</title>
   <link rel="stylesheet" href="assets/styles.css"/>
+
+  <!-- Barcode library -->
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+
+  <!-- Small helper styles (only for the QR button right block) -->
+  <style>
+    .qrright{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+  </style>
 </head>
+
 <body>
   <div class="topbar">
     <button class="back" onclick="window.location.href='index.html'">‹</button>
@@ -16,6 +28,7 @@
 
   <div class="wrap">
     <div class="grid">
+
       <!-- LEFT -->
       <div>
         <div class="card">
@@ -24,7 +37,11 @@
             <div class="card-name" id="userName">—</div>
           </div>
 
-          <div class="card-number" id="cardNumber">—</div>
+          <!-- Stripe like reference -->
+          <div class="card-stripe">
+            <div class="card-number" id="cardNumber">—</div>
+          </div>
+
           <div class="card-sub muted">Без окончания срока действия.</div>
 
           <div class="card-bottom">
@@ -33,10 +50,16 @@
               <div class="discount-lbl">Скидка<br/>постоянника</div>
             </div>
 
-            <button class="qrbtn" id="barcodeBtn">
-              <span class="muted">Показать QR-код<br/>для использования скидки</span>
-              <span class="arrow">›</span>
-              <span class="qr-ico">⌁</span>
+            <!-- QR button like reference -->
+            <button class="qrbtn" id="barcodeBtn" type="button">
+              <div class="qrtext">
+                Показать QR-код<br/>для использования скидки
+              </div>
+
+              <div class="qrright">
+                <span class="arrow">›</span>
+                <span class="qr-ico">⌁</span>
+              </div>
             </button>
           </div>
         </div>
@@ -80,6 +103,7 @@
 
         <div class="section">
           <div class="h2">Вопросы и ответы</div>
+
           <div class="faq">
             <div class="faq-item">
               <div class="q">Как использовать скидку на сайте?</div>
@@ -88,12 +112,14 @@
                 После ввода карты, дополнительно нажмите кнопку найти.
               </div>
             </div>
+
             <div class="faq-item">
               <div class="q">Где увидеть свою скидку?</div>
               <div class="a muted">
                 Вы можете увидеть сумму своей скидки на этой странице или на сайте mosseller, после ввода номера бонусной карты.
               </div>
             </div>
+
             <div class="faq-item">
               <div class="q">Как использовать скидку при самовывозе?</div>
               <div class="a muted">
@@ -101,6 +127,7 @@
                 После этого, покажите сотруднику штрих-код бонусной карты. Сотрудник проверит информацию и начислит скидку.
               </div>
             </div>
+
             <div class="faq-item">
               <div class="q">Как увеличить размер скидки?</div>
               <div class="a muted">
@@ -110,6 +137,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -118,8 +146,9 @@
     <div class="modal-card">
       <div class="modal-head">
         <div class="h3">Штрихкод карты</div>
-        <button class="btn ghost small" id="closeModal">Закрыть</button>
+        <button class="btn ghost small" id="closeModal" type="button">Закрыть</button>
       </div>
+
       <div class="modal-body">
         <svg id="barcode"></svg>
         <div class="muted center mt" id="barcodeText"></div>
