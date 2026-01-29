@@ -1,7 +1,7 @@
 // assets/api.js (полностью)
 
 // ВАЖНО: сюда вставь URL именно текущего Web App (Deploy -> Manage deployments -> Web app URL)
-const API_URL = "https://script.google.com/macros/s/AKfycbyRnmquMnsrJWmqU7SuVqhL-19UzgRi32Xmq9Jt6fmTdwNAfDh0g94jPFGvouEh8nJAkg/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyUkZ6zaAf-1cd4M8QfBIKshbPevBTe0IW8lfupWsC49vYWllo5g_vkm9fuYgRmYvCY0Q/exec";
 
 async function api(action, payload = {}) {
   const res = await fetch(API_URL, {
