@@ -60,15 +60,15 @@
           <input name="password" type="password" autocomplete="new-password" minlength="6" required />
         </label>
 
-        <label class="consent">
+        <div class="consent">
           <input type="checkbox" id="consentCheckbox" />
-          <span>
+          <label for="consentCheckbox" class="consent-text">
             Я согласен с
             <a href="https://mosseller.ru/personaldata" target="_blank" rel="noopener">
               обработкой персональных данных
             </a>
-          </span>
-        </label>
+          </label>
+        </div>
 
         <button class="btn primary" type="submit">Создать аккаунт</button>
         <div id="registerError" class="error"></div>
