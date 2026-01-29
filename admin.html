@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MosSeller Admin</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+
+  <div class="topbar">
+    <button class="back" onclick="window.location.href='app.html'">‹</button>
+    <div class="topbar-title">Админка</div>
+    <button class="btn ghost small" id="adminLogoutBtn" type="button">Выйти</button>
+  </div>
+
+  <div class="wrap">
+    <!-- LOGIN PANEL -->
+    <div id="adminLoginPanel" class="admin-card">
+      <div class="h3">Вход администратора</div>
+      <div class="muted mt">Пароль хранится в Apps Script Properties.</div>
+
+      <form id="adminLoginForm" class="form">
+        <label class="field">
+          <span>Пароль админа</span>
+          <input name="password" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="btn primary" type="submit">Войти</button>
+        <div id="adminLoginError" class="error"></div>
+      </form>
+    </div>
+
+    <!-- APP PANEL -->
+    <div id="adminAppPanel" class="hidden">
+      <div class="admin-header">
+        <div class="admin-search">
+          <input id="searchInput" placeholder="Поиск: имя, email, номер карты…" />
+        </div>
+        <button class="btn" id="refreshBtn" type="button">Обновить</button>
+      </div>
+
+      <div class="admin-grid">
+        <!-- USERS LIST -->
+        <div class="admin-list">
+          <div class="h3">Пользователи</div>
+          <div class="muted mt" id="usersCount">—</div>
+          <div class="admin-table" id="usersList"></div>
+        </div>
+
+        <!-- USER DETAILS -->
+        <div class="admin-detail">
+          <div class="h3">Профиль</div>
+          <div class="muted mt" id="selectedHint">Выберите пользователя слева</div>
+
+          <div id="detailCard" class="admin-detail-card hidden">
+            <div class="detail-row">
+              <div class="detail-label muted">ФИО</div>
+              <div class="detail-value" id="dName">—</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label muted">Email</div>
+              <div class="detail-value" id="dEmail">—</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label muted">Карта</div>
+              <div class="detail-value mono" id="dCard">—</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label muted">Выкуп</div>
+              <div class="detail-value" id="dSpent">—</div>
+            </div>
+
+            <div class="detail-row">
+              <div class="detail-label muted">Скидка</div>
+              <div class="detail-value" id="dDiscount">—</div>
+            </div>
+
+            <hr class="admin-sep"/>
+
+            <div class="admin-form-row">
+              <label class="admin-switch">
+                <input id="vipToggle" type="checkbox">
+                <span>VIP</span>
+              </label>
+
+              <label class="field" style="margin:0;">
+                <span>VIP скидка (%)</span>
+                <input id="vipDiscount" type="number" min="0" max="99" placeholder="например 15">
+              </label>
+            </div>
+
+            <label class="field">
+              <span>VIP примечание</span>
+              <input id="vipNote" placeholder="например: друг/партнёр/особые условия">
+            </label>
+
+            <button class="btn" id="saveUserBtn" type="button">Сохранить</button>
+            <div class="muted mt" id="saveStatus"></div>
+
+            <hr class="admin-sep"/>
+
+            <div class="h3">Добавить покупку</div>
+
+            <div class="admin-form-row">
+              <label class="field" style="margin:0;">
+                <span>Сумма (₽)</span>
+                <input id="purchaseAmount" type="number" min="1" placeholder="5900">
+              </label>
+
+              <label class="field" style="margin:0;">
+                <span>Тип</span>
+                <input id="purchaseType" placeholder="Покупка товара">
+              </label>
+            </div>
+
+            <button class="btn primary" id="addPurchaseBtn" type="button">Добавить</button>
+            <div class="error" id="purchaseError"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/api.js"></script>
+  <script src="assets/admin.js"></script>
+</body>
+</html>
