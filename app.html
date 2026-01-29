@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MosSeller Bonus</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <button class="back" onclick="window.location.href='index.html'">‹</button>
+    <div class="topbar-title">Бонусная программа</div>
+    <button class="btn ghost small" id="logoutBtn">Выйти</button>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- LEFT -->
+      <div>
+        <div class="card">
+          <div class="card-head">
+            <div class="logo">MOSSELLER</div>
+            <div class="card-name" id="userName">—</div>
+          </div>
+
+          <div class="card-number" id="cardNumber">—</div>
+          <div class="card-sub muted">Без окончания срока действия.</div>
+
+          <div class="card-bottom">
+            <div class="discount">
+              <div class="discount-val" id="discountVal">—%</div>
+              <div class="discount-lbl">Скидка<br/>постоянника</div>
+            </div>
+
+            <button class="qrbtn" id="barcodeBtn">
+              <span class="muted">Показать QR-код<br/>для использования скидки</span>
+              <span class="arrow">›</span>
+              <span class="qr-ico">⌁</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="h2">История</div>
+          <div class="history" id="historyList"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+        <div class="section">
+          <div class="h2">Уровни</div>
+          <div class="muted" id="nextText">—</div>
+
+          <div class="levels">
+            <div class="lvl" data-th="0">
+              <div class="pill dark">2%</div>
+              <div class="lvl-sub">от 0₽<br/>до 10 000₽</div>
+            </div>
+            <div class="lvl" data-th="10001">
+              <div class="pill">5%</div>
+              <div class="lvl-sub">от 10 001₽<br/>до 20 000₽</div>
+            </div>
+            <div class="lvl" data-th="20001">
+              <div class="pill">7%</div>
+              <div class="lvl-sub">от 20 001₽<br/>до 30 000₽</div>
+            </div>
+            <div class="lvl" data-th="30001">
+              <div class="pill">10%</div>
+              <div class="lvl-sub">от 30 001₽</div>
+            </div>
+          </div>
+
+          <div class="muted mt">
+            Размер скидки увеличивается автоматически. Скидка растет от суммы выкупа.
+            Подробнее можете посмотреть на этой странице.
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="h2">Вопросы и ответы</div>
+          <div class="faq">
+            <div class="faq-item">
+              <div class="q">Как использовать скидку на сайте?</div>
+              <div class="a muted">
+                Перед оплатой товаров на сайте, в поле “Бонусная карта” введите ваш номер бонусной карты.
+                После ввода карты, дополнительно нажмите кнопку найти.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Где увидеть свою скидку?</div>
+              <div class="a muted">
+                Вы можете увидеть сумму своей скидки на этой странице или на сайте mosseller, после ввода номера бонусной карты.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Как использовать скидку при самовывозе?</div>
+              <div class="a muted">
+                Перейдите на страницу бонусной программы MosSeller и нажмите на карте кнопку ⌁.
+                После этого, покажите сотруднику штрих-код бонусной карты. Сотрудник проверит информацию и начислит скидку.
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="q">Как увеличить размер скидки?</div>
+              <div class="a muted">
+                Размер скидки увеличивается автоматически. Скидка растет от суммы выкупа.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal hidden" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="h3">Штрихкод карты</div>
+        <button class="btn ghost small" id="closeModal">Закрыть</button>
+      </div>
+      <div class="modal-body">
+        <svg id="barcode"></svg>
+        <div class="muted center mt" id="barcodeText"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/api.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
