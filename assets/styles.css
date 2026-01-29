@@ -1,3 +1,5 @@
+/* assets/styles.css (полностью) */
+
 :root{
   --bg:#ffffff;
   --text:#0b0b0f;
@@ -5,91 +7,97 @@
   --line:#ececee;
   --soft:#f6f6f7;
 
-  --card:#0b0b0b;
-  --card2:#111112;
-  --cardStripe:#353538;
-
-  --shadow: 0 20px 70px rgba(0,0,0,.10);
-  --shadow2: 0 14px 40px rgba(0,0,0,.12);
-
-  --r18:18px;
-  --r22:22px;
-  --r28:28px;
-  --r34:34px;
+  --shadow: 0 18px 70px rgba(0,0,0,.08);
+  --shadow2: 0 12px 40px rgba(0,0,0,.10);
 
   --max:1200px;
 }
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: system-ui, -apple-system, "SF Pro Display", "SF Pro Text", Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
   background:var(--bg);
 }
 
-/* ---------- Layout ---------- */
+/* ===== Topbar ===== */
 .topbar{
-  position:sticky; top:0; z-index:10;
-  display:flex; align-items:center; gap:14px;
-  padding:18px 20px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 18px;
   background:rgba(255,255,255,.92);
   backdrop-filter: blur(10px);
 }
 .topbar:after{
   content:"";
-  position:absolute; left:0; right:0; bottom:0;
-  height:1px; background:var(--line);
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:1px;
+  background:var(--line);
 }
 .topbar-title{
-  font-size:34px;
-  font-weight:800;
+  font-size:30px;
+  font-weight:700;
   letter-spacing:-.02em;
   flex:1;
 }
 .back{
-  border:0; background:transparent;
-  font-size:28px; line-height:1; cursor:pointer;
+  border:0;
+  background:transparent;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
   color:var(--text);
 }
 
+/* ===== Layout ===== */
 .wrap{
   max-width:var(--max);
   margin:0 auto;
-  padding:28px 20px 40px;
+  padding:26px 18px 44px;
 }
 .grid{
   display:grid;
   grid-template-columns: 1.06fr .94fr;
-  gap:44px;
+  gap:42px;
   align-items:start;
 }
 
-/* ---------- Typography helpers ---------- */
+.section{ margin-top:28px; }
+
 .h2{
-  font-size:40px;
-  font-weight:850;
+  font-size:36px;
+  font-weight:750;
   letter-spacing:-.02em;
   margin:22px 0 14px;
 }
 .h3{
   font-size:18px;
-  font-weight:850;
+  font-weight:650;
   letter-spacing:-.01em;
 }
-.muted{ color:var(--muted); }
+
+.muted{ color:var(--muted); font-weight:500; }
 .mt{ margin-top:14px; }
 
-/* ---------- Buttons ---------- */
+.center{ text-align:center; }
+
+/* ===== Buttons ===== */
 .btn{
   border:1px solid var(--line);
   background:#fff;
   border-radius:999px;
   padding:12px 16px;
-  font-weight:850;
+  font-weight:650;
   cursor:pointer;
-  transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
 }
 .btn:active{ transform: translateY(1px); }
 .btn.primary{
@@ -97,21 +105,24 @@ body{
   background:#111;
   color:#fff;
   border-color:#111;
+  font-weight:700;
   box-shadow: var(--shadow2);
 }
 .btn.ghost{ background:transparent; }
-.btn.small{ padding:10px 14px; font-weight:850; }
+.btn.small{ padding:10px 14px; }
 
-/* ---------- Card (closer to reference) ---------- */
+/* ===== Card (bonus card) ===== */
 .card{
-  border-radius:42px;
-  background:
-    radial-gradient(140% 120% at 0% 0%, #2b2b2f 0%, #101012 45%, #070707 100%);
+  width:100%;
+  max-width:560px;          /* выглядит как карта, не растягивается */
+  border-radius:40px;
+  background: radial-gradient(140% 120% at 0% 0%, #2b2b2f 0%, #101012 45%, #070707 100%);
   color:#fff;
-  padding:22px;
+  padding:20px;
   box-shadow: var(--shadow);
   overflow:hidden;
 }
+
 .card-head{
   display:flex;
   align-items:center;
@@ -120,64 +131,65 @@ body{
   padding:6px 6px 14px;
 }
 .logo{
-  font-weight:950;
+  font-weight:700;
   letter-spacing:.10em;
-  font-size:15px;
+  font-size:14px;
   opacity:.92;
 }
 .card-name{
-  font-weight:650;
+  font-weight:550;
   opacity:.92;
-  font-size:15px;
+  font-size:14px;
 }
 
-/* middle stripe */
 .card-stripe{
   background: rgba(255,255,255,.14);
-  border-radius:20px;
-  padding:16px 18px;
+  border-radius:18px;
+  padding:14px 16px;
   margin:8px 0 10px;
 }
 .card-number{
-  font-size:36px;
-  font-weight:800;
-  letter-spacing:.14em;
+  font-size:32px;
+  font-weight:650;
+  letter-spacing:.12em;
   font-variant-numeric: tabular-nums;
 }
+
 .card-sub{
   padding:10px 6px 0;
   opacity:.78;
-  font-size:14px;
+  font-size:13.5px;
 }
 
 .card-bottom{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:18px;
+  gap:16px;
   margin-top:14px;
   padding:10px 6px 6px;
 }
+
 .discount{
   display:flex;
   align-items:flex-start;
   gap:12px;
 }
 .discount-val{
-  font-size:52px;
-  font-weight:900;
+  font-size:48px;
+  font-weight:750;
   line-height:1;
   letter-spacing:-.02em;
 }
 .discount-lbl{
-  font-size:15px;
-  font-weight:650;
+  font-size:14.5px;
+  font-weight:600;
   opacity:.9;
   line-height:1.15;
   margin-top:9px;
 }
 
-/* QR action like in reference: text + arrow + round icon */
+/* QR button like reference */
 .qrbtn{
   border:0;
   cursor:pointer;
@@ -187,22 +199,26 @@ body{
   display:flex;
   align-items:center;
   gap:12px;
-  min-width:290px;
   justify-content:space-between;
+  min-width:260px;
   box-shadow: 0 10px 28px rgba(0,0,0,.25);
 }
-.qrbtn .qrtext{
+.qrtext{
   text-align:left;
-  font-weight:700;
+  font-weight:600;
   color:#111;
   line-height:1.15;
   font-size:12.5px;
 }
+.qrright{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 .qrbtn .arrow{
   color:#111;
   font-size:18px;
-  font-weight:900;
-  margin-left:6px;
+  font-weight:700;
 }
 .qrbtn .qr-ico{
   width:44px; height:44px;
@@ -211,14 +227,11 @@ body{
   display:grid;
   place-items:center;
   color:#fff;
-  font-weight:900;
+  font-weight:700;
   font-size:16px;
 }
 
-/* ---------- Sections ---------- */
-.section{ margin-top:28px; }
-
-/* ---------- History (closer to ref) ---------- */
+/* ===== History ===== */
 .history{
   background:var(--soft);
   border-radius:34px;
@@ -243,11 +256,11 @@ body{
   border:1px solid var(--line);
 }
 .htext{ flex:1; }
-.htitle{ font-weight:800; font-size:14px; }
-.hamount{ font-weight:950; font-size:18px; margin-top:3px; }
-.hdate{ color:var(--muted); font-weight:800; font-size:14px; }
+.htitle{ font-weight:650; font-size:14px; }
+.hamount{ font-weight:750; font-size:18px; margin-top:3px; }
+.hdate{ color:var(--muted); font-weight:600; font-size:14px; }
 
-/* ---------- Levels (progress line like reference) ---------- */
+/* ===== Levels ===== */
 .levels{
   margin-top:14px;
   display:grid;
@@ -256,8 +269,6 @@ body{
   align-items:start;
   position:relative;
 }
-
-/* connecting line behind pills */
 .levels:before{
   content:"";
   position:absolute;
@@ -269,7 +280,6 @@ body{
   border-radius:999px;
   z-index:0;
 }
-
 .lvl{
   padding:10px 6px;
   position:relative;
@@ -283,7 +293,7 @@ body{
   place-items:center;
   border:1px solid var(--line);
   background:#fff;
-  font-weight:950;
+  font-weight:700;
   font-size:16px;
   margin:0 auto;
 }
@@ -297,12 +307,12 @@ body{
   text-align:center;
   margin-top:10px;
   color:var(--muted);
-  font-weight:800;
+  font-weight:600;
   font-size:12.5px;
   line-height:1.2;
 }
 
-/* ---------- FAQ (clean cards) ---------- */
+/* ===== FAQ ===== */
 .faq{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -316,13 +326,43 @@ body{
 }
 .q{
   font-size:18px;
-  font-weight:950;
+  font-weight:700;
   letter-spacing:-.02em;
   margin-bottom:8px;
 }
-.a{ line-height:1.5; font-weight:650; }
+.a{
+  line-height:1.5;
+  font-weight:500;
+}
 
-/* ---------- Auth (modern) ---------- */
+/* ===== Modal ===== */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.48);
+  display:grid;
+  place-items:center;
+  padding:18px;
+  z-index:50;
+}
+.modal-card{
+  width:min(560px, 100%);
+  background:#fff;
+  border-radius:34px;
+  border:1px solid var(--line);
+  box-shadow: 0 28px 120px rgba(0,0,0,.28);
+  padding:18px;
+}
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:6px 6px 10px;
+}
+.modal-body{ padding:16px 6px 10px; }
+
+/* ===== Auth page ===== */
 .page.auth{
   min-height:100vh;
   display:grid;
@@ -351,10 +391,11 @@ body{
   padding:4px 4px 10px;
 }
 .brand{
-  font-weight:1000;
+  font-weight:700;
   letter-spacing:.12em;
-  font-size:15px;
+  font-size:14px;
 }
+
 .tabs{
   display:flex;
   gap:10px;
@@ -371,7 +412,7 @@ body{
   border-radius:999px;
   padding:12px 14px;
   cursor:pointer;
-  font-weight:950;
+  font-weight:650;
   color:#111;
 }
 .tab.active{
@@ -379,12 +420,13 @@ body{
   color:#fff;
   box-shadow: 0 10px 22px rgba(0,0,0,.10);
 }
+
 .form{ margin-top:10px; }
 .field{ display:block; margin-top:12px; }
 .field span{
   display:block;
   color:var(--muted);
-  font-weight:900;
+  font-weight:650;
   margin:0 0 8px;
   font-size:12.5px;
   letter-spacing:.02em;
@@ -409,68 +451,75 @@ input:focus{
 }
 .error{
   color:#d11;
-  font-weight:900;
+  font-weight:650;
   margin-top:10px;
   min-height:20px;
 }
 .hidden{ display:none !important; }
 .foot{
   margin-top:14px;
-  font-weight:800;
+  font-weight:600;
   text-align:center;
   color:var(--muted);
   font-size:13px;
 }
 
-/* ---------- Modal ---------- */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.48);
-  display:grid;
-  place-items:center;
-  padding:18px;
-  z-index:50;
-}
-.modal-card{
-  width:min(560px, 100%);
-  background:#fff;
-  border-radius:34px;
-  border:1px solid var(--line);
-  box-shadow: 0 28px 120px rgba(0,0,0,.28);
-  padding:18px;
-}
-.modal-head{
+/* ===== Consent (clean mobile look) ===== */
+.consent{
   display:flex;
   align-items:center;
-  justify-content:space-between;
   gap:12px;
-  padding:6px 6px 10px;
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  background: var(--soft);
+  border-radius: 16px;
 }
-.modal-body{ padding:16px 6px 10px; }
-.center{ text-align:center; }
+.consent input{
+  width:18px;
+  height:18px;
+  margin:0;
+  accent-color:#111;
+  flex:0 0 auto;
+}
+.consent-text{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.25;
+  color:#111;
+  font-weight:500;
+  cursor:pointer;
+  user-select:none;
+}
+.consent-text a{
+  color:#111;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight:600;
+}
+.consent-text a:hover{ opacity:.8; }
 
-/* ---------- Mobile-first adaptation ---------- */
+/* ===== Responsive ===== */
 @media (max-width: 980px){
   .grid{ grid-template-columns:1fr; gap:26px; }
-  .topbar-title{ font-size:26px; }
+  .topbar-title{ font-size:24px; }
   .h2{ font-size:32px; }
 }
+
 @media (max-width: 560px){
   .wrap{ padding:18px 16px 34px; }
-  .topbar{ padding:16px 16px; }
+  .topbar{ padding:14px 16px; }
   .topbar-title{ font-size:22px; }
   .h2{ font-size:30px; }
 
-  .card{ border-radius:36px; padding:18px; }
-  .card-number{ font-size:30px; letter-spacing:.12em; }
-  .discount-val{ font-size:46px; }
+  .card{ max-width:100%; border-radius:34px; padding:18px; }
+  .card-number{ font-size:30px; }
 
-  .qrbtn{ min-width:unset; width:100%; }
+  .qrbtn{ width:100%; min-width:unset; }
   .card-bottom{ flex-direction:column; align-items:stretch; gap:12px; }
-  .discount{ justify-content:flex-start; }
 
-  .levels{ grid-template-columns: repeat(4, 1fr); gap:6px; }
+  .levels{ gap:6px; }
   .levels:before{ left:8%; right:8%; top:23px; }
   .pill{ width:50px; height:50px; font-size:15px; }
   .lvl-sub{ font-size:11.5px; }
@@ -479,96 +528,7 @@ input:focus{
   .grid2{ grid-template-columns:1fr; }
 }
 
-/* ======= TYPO: меньше жирности + системный шрифт ======= */
-body{
-  font-family: system-ui, -apple-system, "SF Pro Display", "SF Pro Text", Segoe UI, Roboto, Arial, sans-serif;
+@media (max-width: 420px){
+  .consent{ align-items:flex-start; }
+  .consent-text{ line-height:1.35; }
 }
-
-.topbar-title{ font-weight: 700; }
-.h2{ font-weight: 750; }
-.h3{ font-weight: 650; }
-
-.logo{ font-weight: 700; letter-spacing:.10em; }
-.card-name{ font-weight: 550; }
-
-.card-number{ font-weight: 650; }
-.discount-val{ font-weight: 750; }
-.discount-lbl{ font-weight: 600; }
-
-.q{ font-weight: 700; }
-.a{ font-weight: 500; }
-
-.btn{ font-weight: 650; }
-.btn.primary{ font-weight: 700; }
-
-.tab{ font-weight: 650; }
-.field span{ font-weight: 650; }
-.error{ font-weight: 650; }
-
-.htitle{ font-weight: 650; }
-.hamount{ font-weight: 750; }
-.hdate{ font-weight: 600; }
-
-.pill{ font-weight: 700; }
-.lvl-sub{ font-weight: 600; }
-
-/* ======= CARD: выглядит как карта, не растягивается ======= */
-/* на десктопе карта фиксируется по ширине и центрируется */
-.card{
-  width: 100%;
-  max-width: 520px;         /* можно 520–600, это “как карта” */
-  margin: 0;                /* по умолчанию */
-  border-radius: 40px;
-}
-
-/* чтобы в левой колонке она не прилипала к краю и не растягивалась */
-@media (min-width: 981px){
-  .grid > div:first-child{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .card{ margin-right:auto; }
-}
-
-/* если экран узкий — карта занимает ширину, но не “плоская” */
-@media (max-width: 560px){
-  .card{
-    max-width: 100%;
-    border-radius: 34px;
-  }
-}
-
-/* полоска под номер — чуть компактнее */
-.card-stripe{
-  border-radius: 18px;
-  padding: 14px 16px;
-}
-
-/* номер карты — аккуратнее по плотности */
-.card-number{
-  font-size: 32px;          /* было крупнее */
-  letter-spacing: .12em;
-}
-
-/* ======= QR button: не растягиваем на десктопе, но на мобилке — да ======= */
-.qrbtn{
-  min-width: 260px;
-  width: auto;
-}
-
-@media (max-width: 560px){
-  .qrbtn{
-    width: 100%;
-    min-width: unset;
-  }
-}
-
-/* Чуть мягче текст внутри кнопки */
-.qrbtn .qrtext{
-  font-weight: 600;
-  font-size: 12.5px;
-}
-
-/* ======= Общий “воздух” (чтобы было как в рефе) ======= */
-.muted{ font-weight: 500; }
